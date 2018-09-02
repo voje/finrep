@@ -1,9 +1,15 @@
 <template>
 <div class="content is-small">
-    <form @submit.prevent="handleSubmit">
-        <input class="input" type="text" placeholder="geslo" v-model="passw"/>
-        <button type="submit">Ok</button>
-    </form>
+    <div class="field has-addons" @keyup.enter="handleSubmit">
+        <div class="control is-expanded">
+            <input class="input is-warning" type="text" placeholder="geslo" v-model="passw"/>
+        </div>
+        <div class="control">
+            <a class="button is-warning" @click="handleSubmit">
+                Ok
+            </a>
+        </div>
+    </div>
     <table class="table is-narrow is-fullwidth">
         <thead>
             <tr><th v-for="header in headers">{{header}}</th></tr>
@@ -44,11 +50,11 @@ export default {
             this.tmpRunningSum = 0.0
             var tthis = this
             this.entries = rawEntries.map(function (el) {
-                console.log(el)
+                // console.log(el)
                 var amount = 0.0 + el["Income amount"] - el["Expense amount"]
                 tthis.tmpRunningSum += amount
                 var date = new Date(el["\ufeff\"Date\""])
-                console.log(date)
+                // console.log(date)
                 return {
                     "datum": date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear(),
                     "oznaka": el["Tags"],
