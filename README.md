@@ -11,10 +11,25 @@ A correct key will successfully decrypt the financial data and display it.
 Server ... ekhm home PC side: `$sudo apt-get install python3-csvkit openssl-util` installed. 
 Get the .csv data file and do the following: 
 ```bash
-$ ./prepare_data.sh <file.csv>
 # enter a symmetric encryption key
 $ git add . --all
 $ git commit -m "Refreshing report."
 $ git push origin gh-pages
 ```
 
+## Pushing to gh-pages
+```
+# get the .csv report file, put it in gitignored input_data
+# create an encoded file for deployment
+$ ./prepare_data.sh input_data/<file.csv>
+
+$ npm run build
+$ cd dist
+
+# need to fix paths (github is trying to load static files from root (/) instead of /finrep)
+$ sed -ie 's/\/static\//\/finrep\/static\//g' index.html
+
+# push folder as root
+$ cd ../..
+$ git subtree push --prefix finrep/dist origin gh-pages
+```

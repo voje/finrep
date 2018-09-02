@@ -38,8 +38,8 @@ export default {
         tmpRunningSum: 0.0,
     }},
     created: function () {
-        this.passw = "123"
-        this.handleSubmit()
+        // this.passw = "123"
+        // this.handleSubmit()
     },
     computed: {
 
