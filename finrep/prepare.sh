@@ -16,7 +16,7 @@ echo
 
 echo "aes-256-cbc with base64, pass:123 :"
 dataenc=$(mktemp)
-openssl enc -aes-256-cbc -salt -base64 -in $datajson -out $dataenc -pass pass:123
+openssl enc -aes-256-cbc -salt -base64 -in $datajson -out $dataenc
 cat $dataenc
 echo
 echo
