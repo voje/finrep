@@ -1,4 +1,4 @@
-# Premise
+# Prologue
 We're going to read a .csv file and convert it to JSON. 
 It's a financial report so let's keep it secret. 
 Encrypt the JSON file, remove original csv and JSON, push to gh-pages. 
