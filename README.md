@@ -21,7 +21,7 @@ $ git push origin gh-pages
 ```
 # get the .csv report file, put it in gitignored input_data
 # create an encoded file for deployment
-$ ./prepare_data.sh input_data/<file.csv>
+$ ./prepare.sh input_data/<file.csv>
 
 $ npm run build
 $ cd dist
