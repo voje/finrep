@@ -7,6 +7,18 @@ We'll be using `GnuPG` on our PC and `OpenGpG
 Users will see a simple vuej.js based app, asking them for a password which is our symmetric encryption key. 
 A correct key will successfully decrypt the financial data and display it. 
 
+## Quick usage
+Use Makefile.  
+First, put a Tosh exported .csv file in the git root. Name it `data.csv`. It will get .gitignored.  
+Then, run for dev or production:  
+```bash
+# dev
+make run-dev
+
+# prod
+make push-to-gh
+```
+
 ## What do we need?
 Server ... ekhm home PC side: `$sudo apt-get install python3-csvkit openssl-util` installed. 
 Get the .csv data file and do the following: 

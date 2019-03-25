@@ -21,5 +21,7 @@ run-dev: prepare-data
 build-prod: prepare-data
 	cd finrep; npm run build
 
-push-to-gh:
-	
+push-to-gh: build-prod
+	# gh-pages setings
+	cd finrep/dist; sed -ie 's/\/static\//\/finrep\/static\//g' index.html
+	git subtree push --prefix finrep/dist origin gh-pages
