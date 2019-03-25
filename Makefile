@@ -23,7 +23,7 @@ build-prod: prepare-data
 
 push-to-gh:
 	# gh-pages setings
-	cd finrep/dist; sed -ie 's/\/static\//\/finrep\/static\//g' index.html
+	cp fixed_index.html finrep/dist/index.html
 
 	# not sure, might need to push to master first
 	git subtree push --prefix finrep/dist origin gh-pages
