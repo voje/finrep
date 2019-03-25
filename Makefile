@@ -25,5 +25,7 @@ push-to-gh:
 	# gh-pages setings
 	cp fixed_index.html finrep/dist/index.html
 
-	# not sure, might need to push to master first
+	git add finrep/dist/index.html
+	git commit -m "modified finrep/dist/index.html"
+	git push origin master
 	git subtree push --prefix finrep/dist origin gh-pages
