@@ -12,12 +12,20 @@ Use Makefile.
 First, put a Tosh exported .csv file in the git root. Name it `data.csv`. It will get .gitignored.  
 Then, run for dev or production:  
 ```bash
-# dev
+# Enter node-env
+make run-env
+
+# either dev
 make run-dev
 
-# prod
-make push-to-gh
+# or production
+make build-prod
 ```
+
+When you're done, exit the container.  
+Push your changes to github.  
+To push to gh-pages, use `make push-to-gh`.  
+
 
 ## What do we need?
 Server ... ekhm home PC side: `$sudo apt-get install python3-csvkit openssl-util` installed. 
