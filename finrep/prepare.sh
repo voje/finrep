@@ -3,4 +3,4 @@
 echo "password:"
 read pass
 
-node prepare_data.js $pass > ./src/assets/data.base64
+node prepare_data.js $pass

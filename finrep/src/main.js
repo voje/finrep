@@ -3,9 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import CryptoJS from "crypto-js"
-import fs from "fs"
 
 import './../node_modules/bulma/css/bulma.css'
+
+const encData = require("@/assets/data.json")
 
 Vue.config.productionTip = false
 
@@ -16,15 +17,17 @@ new Vue({
   template: '<App/>',
   methods: {
     decode: function (pass) {
-      var json = []
-
-      var dataEnc = fs.readFile("./assets/data.base64", "utf-8", function(err, contents) {
-        var inCipher = CryptoJS.AES.decrypt(dataEnc, pass)
-        var inStringified = inCipher.toString(CryptoJS.enc.Utf8)
+      var cipherStr = encData["data"]
+      var inCipher = CryptoJS.AES.decrypt(cipherStr, pass)
+      var inStringified = inCipher.toString(CryptoJS.enc.Utf8)
+      console.log(inStringified)  // yay, works
+      var json = null
+      try {
         json = JSON.parse(inStringified)
-        console.log(json)
-        return json
-      })
+      } catch (err) {
+        console.log(err)
+      }
+      return json
     },
   }
 })

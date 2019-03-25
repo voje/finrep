@@ -53,7 +53,9 @@ export default {
                 // console.log(el)
                 var amount = 0.0 + el["Income amount"] - el["Expense amount"]
                 tthis.tmpRunningSum += amount
-                var date = new Date(el["\ufeff\"Date\""])
+                console.log(el)
+                // var date = new Date(el["\ufeff\"Date\""])
+                var date = new Date(el["Date"])
                 // console.log(date)
                 return {
                     "datum": date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear(),
